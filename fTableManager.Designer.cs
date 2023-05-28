@@ -240,7 +240,7 @@
             // 
             this.flpTable.Location = new System.Drawing.Point(12, 34);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(634, 679);
+            this.flpTable.Size = new System.Drawing.Size(646, 679);
             this.flpTable.TabIndex = 5;
             // 
             // columnHeader1
