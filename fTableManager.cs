@@ -5,10 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace QuanLyQuanCafe
 {
@@ -17,6 +20,7 @@ namespace QuanLyQuanCafe
         public fTableManager()
         {
             InitializeComponent();
+
             LoadaTable();
         }
         #region Method
@@ -48,8 +52,11 @@ namespace QuanLyQuanCafe
         #endregion
         void ShowBill(int id)
         {
+
             lsvBill.Items.Clear();
             List<QuanLyQuanCafe.DTO.Menu> listBillInfo = MenuDAO.Instance.GetListMenuByTable(id);
+
+            float totalPrice = 0;
 
             foreach(QuanLyQuanCafe.DTO.Menu item in listBillInfo)
             {
@@ -58,8 +65,14 @@ namespace QuanLyQuanCafe
                 lsvItem.SubItems.Add(item.Price.ToString());
                 lsvItem.SubItems.Add(item.TotalPrice.ToString());
 
+                totalPrice += item.Price;
+
                 lsvBill.Items.Add(lsvItem);
             }
+            CultureInfo culture = new CultureInfo("vi-VN"); //đổi sang VNĐ
+
+            //Thread.CurrentThread.CurrentCulture = culture;
+            txbTotalPrice.Text = totalPrice.ToString("c", culture);
         }
 
         #region Events
@@ -89,6 +102,11 @@ namespace QuanLyQuanCafe
         #endregion
 
         private void lsvBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSwitchTable_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
