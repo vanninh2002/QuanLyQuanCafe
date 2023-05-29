@@ -30,6 +30,13 @@
         {
             this.tpAccount = new System.Windows.Forms.TabPage();
             this.panel25 = new System.Windows.Forms.Panel();
+            this.btnResetPassword = new System.Windows.Forms.Button();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.cbAccountType = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.txbDisplayName = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -108,15 +115,10 @@
             this.dtfkToDate = new System.Windows.Forms.DateTimePicker();
             this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
             this.tcAdmin = new System.Windows.Forms.TabControl();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.txbDisplayName = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cbAccountType = new System.Windows.Forms.ComboBox();
-            this.btnResetPassword = new System.Windows.Forms.Button();
             this.tpAccount.SuspendLayout();
             this.panel25.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel27.SuspendLayout();
             this.panel26.SuspendLayout();
             this.panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvAccount)).BeginInit();
@@ -153,8 +155,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.panel1.SuspendLayout();
             this.tcAdmin.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.panel28.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpAccount
@@ -180,6 +180,69 @@
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(392, 582);
             this.panel25.TabIndex = 2;
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.Location = new System.Drawing.Point(220, 287);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(149, 49);
+            this.btnResetPassword.TabIndex = 4;
+            this.btnResetPassword.Text = " Đặt Lại Mật Khẩu ";
+            this.btnResetPassword.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.cbAccountType);
+            this.panel28.Controls.Add(this.label13);
+            this.panel28.Location = new System.Drawing.Point(3, 169);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(386, 77);
+            this.panel28.TabIndex = 3;
+            // 
+            // cbAccountType
+            // 
+            this.cbAccountType.FormattingEnabled = true;
+            this.cbAccountType.Location = new System.Drawing.Point(168, 29);
+            this.cbAccountType.Name = "cbAccountType";
+            this.cbAccountType.Size = new System.Drawing.Size(209, 24);
+            this.cbAccountType.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(159, 24);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Loại Tài Khoản:";
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.txbDisplayName);
+            this.panel27.Controls.Add(this.label12);
+            this.panel27.Location = new System.Drawing.Point(3, 86);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(386, 77);
+            this.panel27.TabIndex = 2;
+            // 
+            // txbDisplayName
+            // 
+            this.txbDisplayName.Location = new System.Drawing.Point(157, 27);
+            this.txbDisplayName.Multiline = true;
+            this.txbDisplayName.Name = "txbDisplayName";
+            this.txbDisplayName.Size = new System.Drawing.Size(220, 32);
+            this.txbDisplayName.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 27);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(143, 24);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Tên Hiển Thị: ";
             // 
             // panel26
             // 
@@ -872,6 +935,7 @@
             // 
             // dtgvBill
             // 
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBill.Location = new System.Drawing.Point(3, 3);
             this.dtgvBill.Name = "dtgvBill";
@@ -898,6 +962,7 @@
             this.btnViewBill.TabIndex = 2;
             this.btnViewBill.Text = "Thống Kê ";
             this.btnViewBill.UseVisualStyleBackColor = true;
+            this.btnViewBill.Click += new System.EventHandler(this.btnViewBill_Click);
             // 
             // dtfkToDate
             // 
@@ -927,69 +992,6 @@
             this.tcAdmin.TabIndex = 0;
             this.tcAdmin.SelectedIndexChanged += new System.EventHandler(this.tcAdmin_SelectedIndexChanged);
             // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.txbDisplayName);
-            this.panel27.Controls.Add(this.label12);
-            this.panel27.Location = new System.Drawing.Point(3, 86);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(386, 77);
-            this.panel27.TabIndex = 2;
-            // 
-            // txbDisplayName
-            // 
-            this.txbDisplayName.Location = new System.Drawing.Point(157, 27);
-            this.txbDisplayName.Multiline = true;
-            this.txbDisplayName.Name = "txbDisplayName";
-            this.txbDisplayName.Size = new System.Drawing.Size(220, 32);
-            this.txbDisplayName.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 27);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 24);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Tên Hiển Thị: ";
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.cbAccountType);
-            this.panel28.Controls.Add(this.label13);
-            this.panel28.Location = new System.Drawing.Point(3, 169);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(386, 77);
-            this.panel28.TabIndex = 3;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 27);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(159, 24);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Loại Tài Khoản:";
-            // 
-            // cbAccountType
-            // 
-            this.cbAccountType.FormattingEnabled = true;
-            this.cbAccountType.Location = new System.Drawing.Point(168, 29);
-            this.cbAccountType.Name = "cbAccountType";
-            this.cbAccountType.Size = new System.Drawing.Size(209, 24);
-            this.cbAccountType.TabIndex = 1;
-            // 
-            // btnResetPassword
-            // 
-            this.btnResetPassword.Location = new System.Drawing.Point(220, 287);
-            this.btnResetPassword.Name = "btnResetPassword";
-            this.btnResetPassword.Size = new System.Drawing.Size(149, 49);
-            this.btnResetPassword.TabIndex = 4;
-            this.btnResetPassword.Text = " Đặt Lại Mật Khẩu ";
-            this.btnResetPassword.UseVisualStyleBackColor = true;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1002,6 +1004,10 @@
             this.Load += new System.EventHandler(this.fAdmin_Load);
             this.tpAccount.ResumeLayout(false);
             this.panel25.ResumeLayout(false);
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            this.panel27.ResumeLayout(false);
+            this.panel27.PerformLayout();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.panel24.ResumeLayout(false);
@@ -1050,10 +1056,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tcAdmin.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel27.PerformLayout();
-            this.panel28.ResumeLayout(false);
-            this.panel28.PerformLayout();
             this.ResumeLayout(false);
 
         }

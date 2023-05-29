@@ -17,7 +17,7 @@ namespace QuanLyQuanCafe
         public fAdmin()
         {
             InitializeComponent();
-           
+            LoadListBillByDate(dtpkFromDate.Value, dtfkToDate.Value);
         }
 
 
@@ -56,5 +56,19 @@ namespace QuanLyQuanCafe
         {
 
         }
+        #region methods
+
+        void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+           dtgvBill.DataSource =  BillDAO.Instance.GetListBillByDate(checkIn, checkOut);
+        }
+        #endregion
+
+        #region events
+        private void btnViewBill_Click(object sender, EventArgs e)
+        {
+            LoadListBillByDate(dtpkFromDate.Value, dtfkToDate.Value);
+        }
+        #endregion
     }
 }
