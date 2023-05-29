@@ -200,6 +200,7 @@
             this.btnUpDate.TabIndex = 9;
             this.btnUpDate.Text = "Cập Nhật";
             this.btnUpDate.UseVisualStyleBackColor = true;
+            this.btnUpDate.Click += new System.EventHandler(this.btnUpDate_Click);
             // 
             // btnExti
             // 

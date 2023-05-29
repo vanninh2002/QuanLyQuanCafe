@@ -12,6 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static QuanLyQuanCafe.fAccountProfile;
 
 namespace QuanLyQuanCafe
 {
@@ -20,8 +21,8 @@ namespace QuanLyQuanCafe
         private Account loginAccount;
 
         public Account LoginAccount 
-        { 
-            get => loginAccount;
+        {
+            get { return loginAccount; }
             set { loginAccount = value; ChangeAccount(loginAccount.Type); }
         }
 
@@ -40,6 +41,7 @@ namespace QuanLyQuanCafe
         void ChangeAccount(int type)
         {
             adminToolStripMenuItem.Enabled = type == 1;
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.DisplayName + ")"; 
         }
 
         void LoadCategory()
@@ -129,9 +131,14 @@ namespace QuanLyQuanCafe
 
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(loginAccount);
+            f.UpdateAccount += f_UpdateAccount;
             f.ShowDialog();
 
+        }
+        void f_UpdateAccount(object sender, AccountEvent e)
+        {
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.DisplayName + ")";
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
