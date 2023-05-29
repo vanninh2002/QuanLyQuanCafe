@@ -1,4 +1,5 @@
 ﻿using Microsoft.SqlServer.Server;
+using QuanLyQuanCafe.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +31,16 @@ namespace QuanLyQuanCafe.DAO
 
 
             return result.Rows.Count > 0; // Số dòng trả ra lớn hơn 0
+        }
+        public Account GetAccountByUserName(string userName)
+        {
+           DataTable data =  DataProvider.Instance.ExecuteQuery("select * from Account where userName = '" + userName + "'");
+
+            foreach(DataRow item in data.Rows)
+            {
+                return new Account(item);
+            }
+            return null;
         }
     }
 }

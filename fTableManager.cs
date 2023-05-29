@@ -17,14 +17,30 @@ namespace QuanLyQuanCafe
 {
     public partial class fTableManager : Form
     {
-        public fTableManager()
+        private Account loginAccount;
+
+        public Account LoginAccount 
+        { 
+            get => loginAccount;
+            set { loginAccount = value; ChangeAccount(loginAccount.Type); }
+        }
+
+        public fTableManager(Account acc)
         {
             InitializeComponent();
+
+            this.loginAccount = acc;
+
             LoadTable();
             LoadCategory();
             LoadComboboxTable(cbSwitchTable);
         }
         #region Method
+
+        void ChangeAccount(int type)
+        {
+            adminToolStripMenuItem.Enabled = type == 1;
+        }
 
         void LoadCategory()
         {
